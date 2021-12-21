@@ -1,3 +1,4 @@
-
-FROM ngnix
-COPY ./web-page.html /usr/share/nginx/html/web-page.html
+FROM node
+COPY package.json  /
+COPY . /
+ENTRYPOINT ["node" , "index.js"]
