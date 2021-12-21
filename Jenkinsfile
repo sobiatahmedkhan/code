@@ -6,9 +6,9 @@ pipeline {
             steps {
                 script {
                     sh 'sonar-scanner \
-  			-Dsonar.projectKey=web-page \
+  			-Dsonar.projectKey=web-page.html \
   			-Dsonar.sources=. \
-  			-Dsonar.host.url=http://localhost:5000 \
+  			-Dsonar.host.url=http://sonarqube:9000 \
   			-Dsonar.login=webpage'
                 }
             }
