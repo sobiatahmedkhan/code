@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    tools {
-        
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
-    }
     stages{
      
         stage ('testing project') {
@@ -53,7 +49,7 @@ pipeline {
 	 stage ('removing docker image') {
             steps {
                 script {
-                    sh 'docker rmi jimsparrow/java-app:latest'
+                    sh 'docker rmi jimsparrow/web-page:latest'
                 }
 
             }
