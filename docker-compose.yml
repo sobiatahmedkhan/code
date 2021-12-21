@@ -18,5 +18,5 @@ services:
       - sonar-Vol:/opt/sonarqube/data
 
 volumes:
-  jenkins-Vol: null
-  sonar-Vol: null
+  jenkins-Vol:
+  sonar-Vol:
