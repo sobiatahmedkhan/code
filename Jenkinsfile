@@ -6,10 +6,10 @@ pipeline {
             steps {
                 script {
                     sh 'sonar-scanner \
-  			-Dsonar.projectKey=web-page.html \
-  			-Dsonar.sources=. \
-  			-Dsonar.host.url=http://sonarqube:9000 \
-  			-Dsonar.login=webpage'
+  		-Dsonar.projectKey=web-page.html \
+  		-Dsonar.sources=. \
+  		-Dsonar.host.url=http://sonarqube:9000 \
+  		-Dsonar.login=eabaef1d91676c4646601daafb8c0ee85e1b679 '
                 }
             }
         }
