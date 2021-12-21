@@ -1,25 +1,19 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven3'
+        
         'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
     }
     stages{
-        stage ('building project') {
-            steps {
-                script {
-                    sh 'mvn clean  install -DskipTests'
-                }
-            }
-        }
-    
+     
         stage ('testing project') {
             steps {
                 script {
-                    sh 'mvn clean verify sonar:sonar \
-                    -Dsonar.projectKey=java-app-testing \
-                    -Dsonar.host.url=http://sonarqube:9000 \
-                    -Dsonar.login=07526f87f409640a3e523fd2e75f4602e9ef7548'
+                    sh 'sonar-scanner \
+  			-Dsonar.projectKey=web-page \
+  			-Dsonar.sources=. \
+  			-Dsonar.host.url=http://localhost:5000 \
+  			-Dsonar.login=webpage'
                 }
             }
         }
@@ -27,7 +21,7 @@ pipeline {
      stage ('creating docker image') {
             steps {
                 script {
-                    sh 'docker build -t jimsparrow/java-app:latest .'
+                    sh 'docker build -t jimsparrow/web-page:latest .'
                 }
     
             }
@@ -45,7 +39,7 @@ pipeline {
                         sh "docker login -u $USER -p $PWD " 
                         }
                     
-                     sh 'docker push jimsparrow/java-app:latest'
+                     sh 'docker push jimsparrow/web-page:latest'
                      sh 'docker logout'
                     
                 }
