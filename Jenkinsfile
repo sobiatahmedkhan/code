@@ -16,15 +16,15 @@ pipeline {
             }
         }
 
-     stage ('testing project') {
-                steps {
-                    script {
-                        sh 'sonar-scanner \
-                            -Dsonar.projectKey=index.html \
-                            -Dsonar.sources=. \
-                            -Dsonar.host.url=http://sonarqube:9000 \
-                            -Dsonar.login=25d311047a3a45500d2c3c0d3e0810c9cce568db'
-                    }
+    node {
+            stage('SCM') {
+             checkout scm
+          }
+    stage('SonarQube Analysis') {
+           def scannerHome = tool 'SonarScanner';
+             withSonarQubeEnv() {
+              sh "${scannerHome}/bin/sonar-scanner"
+                     }
                 }
             }
 
