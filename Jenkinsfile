@@ -21,7 +21,7 @@ pipeline {
                         sh 'sonar-scanner \
                         -Dsonar.projectKey=node_app \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://localhost:5000 \
+                        -Dsonar.host.url=http://sonarqube:9000 \
                         -Dsonar.login=49edb00b06b150e0d5209eecefd61afce767cb04'
                     }
                 }
