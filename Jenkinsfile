@@ -2,8 +2,8 @@ pipeline {
     agent any
      tools{
 		nodejs 'nodejs'
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
-			}
+            'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
+	}
     stages{
 		
 	stage('building nodejs package') {
@@ -50,7 +50,7 @@ pipeline {
 	 stage ('removing docker image') {
             steps {
                 script {
-                    sh 'docker rmi jimsparrow/node-appp:latest'
+                    sh 'docker rmi jimsparrow/node-app:latest'
                 }
 
             }
