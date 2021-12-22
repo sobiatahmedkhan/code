@@ -2,7 +2,7 @@ pipeline {
     agent any
      tools{
 		nodejs 'nodejs' 'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
-        SonarQube Scanner 'sonarqube'
+            
     }
     stages{
 
