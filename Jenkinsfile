@@ -18,8 +18,11 @@ pipeline {
      stage ('testing project') {
                 steps {
                     script {
-                        sh 'npm install -D sonarqube-scanner'
-                        sh 'npm install -g sonarqube-scanner'
+                        sh 'sonar-scanner \
+                        -Dsonar.projectKey=node_app \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://localhost:5000 \
+                        -Dsonar.login=49edb00b06b150e0d5209eecefd61afce767cb04'
                     }
                 }
             }
