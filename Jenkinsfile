@@ -1,9 +1,29 @@
 pipeline {
     agent any
      tools{
-		NodeJs 'nodejs'
+		nodejs 'nodejs'
 			}
     stages{
+		
+	stage('building nodejs package') {
+            steps {
+                script {
+                    sh ' npm  install '
+                }
+            }
+        }
+
+	stage ('testing project') {
+            steps {
+                script {
+                    sh 'sonar-scanner \
+ 		 -Dsonar.projectKey=web-page.html \
+	  	-Dsonar.sources=. \
+	  	-Dsonar.host.url=http://sonarqube:9000\
+	  	-Dsonar.login=webpage'
+                }
+            }
+        }
 
      stage ('creating docker image') {
             steps {
