@@ -1,10 +1,8 @@
 pipeline {
     agent any
      tools{
-		nodejs 'nodejs' 
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
-            
-    }
+		nodejs 'nodejs' 'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
+        }
     stages{
 
 		
@@ -16,15 +14,11 @@ pipeline {
             }
         }
 
-     node {
-            stage('SCM') {
-             checkout scm
-          }
-     stage('SonarQube Analysis') {
-           def scannerHome = tool 'SonarScanner';
-             withSonarQubeEnv() {
-              sh "${scannerHome}/bin/sonar-scanner"
-                     }
+     stage ('testing project') {
+                steps {
+                    script {
+                        sh 'npm run sonar'
+                    }
                 }
             }
 
