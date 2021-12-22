@@ -13,17 +13,6 @@ pipeline {
             }
         }
 
-	stage ('testing project') {
-            steps {
-                script {
-                    sh 'sonar-scanner \
-		  -Dsonar.projectKey=code \
-		  -Dsonar.sources=. \
-		  -Dsonar.host.url=http://sonarqube:9000 \
-		  -Dsonar.login=60031d3b2cc36e8a16745dd74af95a135471c859'
-                }
-            }
-        }
 
      stage ('creating docker image') {
             steps {
