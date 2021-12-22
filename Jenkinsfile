@@ -18,7 +18,8 @@ pipeline {
      stage ('testing project') {
                 steps {
                     script {
-                        sh 'npm run sonar'
+                        sh 'npm install -D sonarqube-scanner'
+                        sh 'npm install -g sonarqube-scanner'
                     }
                 }
             }
