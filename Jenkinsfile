@@ -2,6 +2,7 @@ pipeline {
     agent any
      tools{
 		nodejs 'nodejs'
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
 			}
     stages{
 		
@@ -17,7 +18,7 @@ pipeline {
      stage ('creating docker image') {
             steps {
                 script {
-                    sh 'docker build -t jimsparrow/web-page:latest .'
+                    sh 'docker build -t jimsparrow/node-app:latest .'
                 }
     
             }
@@ -35,7 +36,7 @@ pipeline {
                         sh "docker login -u $USER -p $PWD " 
                         }
                     
-                     sh 'docker push jimsparrow/web-page:latest'
+                     sh 'docker push jimsparrow/node-app:latest'
                      sh 'docker logout'
                     
                 }
@@ -49,7 +50,7 @@ pipeline {
 	 stage ('removing docker image') {
             steps {
                 script {
-                    sh 'docker rmi jimsparrow/web-page:latest'
+                    sh 'docker rmi jimsparrow/node-appp:latest'
                 }
 
             }
