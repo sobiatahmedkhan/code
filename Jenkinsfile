@@ -3,6 +3,7 @@ pipeline {
      tools{
 		nodejs 'nodejs'
             'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
+            'sonarqube'
 	}
     stages{
 
