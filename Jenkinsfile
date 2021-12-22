@@ -1,7 +1,8 @@
 pipeline {
     agent any
      tools{
-		nodejs 'nodejs' 'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
+		nodejs 'nodejs' 
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker'
             
     }
     stages{
