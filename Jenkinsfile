@@ -17,10 +17,10 @@ pipeline {
             steps {
                 script {
                     sh 'sonar-scanner \
-  -Dsonar.projectKey=code \
+  -Dsonar.projectKey=static-website \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://sonarqube:9000 \
-  -Dsonar.login=e16bfd334857fd3a269cd14484d95f21d2f49ac6'
+  -Dsonar.login=e8a061ae6cfe78199f5fd3b989b05f40a23f39e0'
                 }
             }
         }
